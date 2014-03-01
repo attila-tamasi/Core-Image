@@ -14,7 +14,6 @@
 		1E1BB88A18C1E1080018E853 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB88918C1E1080018E853 /* main.m */; };
 		1E1BB88E18C1E1080018E853 /* STAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB88D18C1E1080018E853 /* STAAppDelegate.m */; };
 		1E1BB89118C1E1080018E853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E1BB88F18C1E1080018E853 /* Main.storyboard */; };
-		1E1BB89418C1E1080018E853 /* STAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB89318C1E1080018E853 /* STAViewController.m */; };
 		1E1BB89618C1E1080018E853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E1BB89518C1E1080018E853 /* Images.xcassets */; };
 		1E1BB89D18C1E1080018E853 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1BB89C18C1E1080018E853 /* XCTest.framework */; };
 		1E1BB89E18C1E1080018E853 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1BB87D18C1E1080018E853 /* Foundation.framework */; };
@@ -43,11 +42,9 @@
 		1E1BB88718C1E1080018E853 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E1BB88918C1E1080018E853 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1E1BB88B18C1E1080018E853 /* Core Image-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Core Image-Prefix.pch"; sourceTree = "<group>"; };
-		1E1BB88C18C1E1080018E853 /* STAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAAppDelegate.h; sourceTree = "<group>"; };
-		1E1BB88D18C1E1080018E853 /* STAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAAppDelegate.m; sourceTree = "<group>"; };
+		1E1BB88C18C1E1080018E853 /* STAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = STAAppDelegate.h; path = "Core Image/STAAppDelegate.h"; sourceTree = "<group>"; };
+		1E1BB88D18C1E1080018E853 /* STAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = STAAppDelegate.m; path = "Core Image/STAAppDelegate.m"; sourceTree = "<group>"; };
 		1E1BB89018C1E1080018E853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1E1BB89218C1E1080018E853 /* STAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAViewController.h; sourceTree = "<group>"; };
-		1E1BB89318C1E1080018E853 /* STAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAViewController.m; sourceTree = "<group>"; };
 		1E1BB89518C1E1080018E853 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1E1BB89B18C1E1080018E853 /* Core ImageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Core ImageTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E1BB89C18C1E1080018E853 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -86,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				1E1BB88318C1E1080018E853 /* Core Image */,
+				1E1BB88C18C1E1080018E853 /* STAAppDelegate.h */,
+				1E1BB88D18C1E1080018E853 /* STAAppDelegate.m */,
 				1E1BB8A218C1E1080018E853 /* Core ImageTests */,
 				1E1BB87C18C1E1080018E853 /* Frameworks */,
 				1E1BB87B18C1E1080018E853 /* Products */,
@@ -115,15 +114,10 @@
 		1E1BB88318C1E1080018E853 /* Core Image */ = {
 			isa = PBXGroup;
 			children = (
-				1E1BB88C18C1E1080018E853 /* STAAppDelegate.h */,
-				1E1BB88D18C1E1080018E853 /* STAAppDelegate.m */,
+				1E1BB8B918C1E82C0018E853 /* Cross Cutting */,
 				1E1BB88F18C1E1080018E853 /* Main.storyboard */,
-				1E1BB89218C1E1080018E853 /* STAViewController.h */,
-				1E1BB89318C1E1080018E853 /* STAViewController.m */,
 				1E1BB89518C1E1080018E853 /* Images.xcassets */,
 				1E1BB88418C1E1080018E853 /* Supporting Files */,
-				1E1BB8B318C1E16E0018E853 /* STADispatchFunctions.h */,
-				1E1BB8B418C1E16E0018E853 /* STADispatchFunctions.m */,
 			);
 			path = "Core Image";
 			sourceTree = "<group>";
@@ -155,6 +149,15 @@
 				1E1BB8A518C1E1080018E853 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1E1BB8B918C1E82C0018E853 /* Cross Cutting */ = {
+			isa = PBXGroup;
+			children = (
+				1E1BB8B318C1E16E0018E853 /* STADispatchFunctions.h */,
+				1E1BB8B418C1E16E0018E853 /* STADispatchFunctions.m */,
+			);
+			name = "Cross Cutting";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +264,6 @@
 				1E1BB88A18C1E1080018E853 /* main.m in Sources */,
 				1E1BB88E18C1E1080018E853 /* STAAppDelegate.m in Sources */,
 				1E1BB8B518C1E16E0018E853 /* STADispatchFunctions.m in Sources */,
-				1E1BB89418C1E1080018E853 /* STAViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
