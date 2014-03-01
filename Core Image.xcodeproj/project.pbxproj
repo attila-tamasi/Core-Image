@@ -21,6 +21,7 @@
 		1E1BB8A718C1E1080018E853 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E1BB8A518C1E1080018E853 /* InfoPlist.strings */; };
 		1E1BB8A918C1E1080018E853 /* Core_ImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8A818C1E1080018E853 /* Core_ImageTests.m */; };
 		1E1BB8B518C1E16E0018E853 /* STADispatchFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8B418C1E16E0018E853 /* STADispatchFunctions.m */; };
+		1E1BB8BE18C1E96D0018E853 /* STACoreImageRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8BD18C1E96D0018E853 /* STACoreImageRootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		1E1BB8A818C1E1080018E853 /* Core_ImageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Core_ImageTests.m; sourceTree = "<group>"; };
 		1E1BB8B318C1E16E0018E853 /* STADispatchFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STADispatchFunctions.h; sourceTree = "<group>"; };
 		1E1BB8B418C1E16E0018E853 /* STADispatchFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STADispatchFunctions.m; sourceTree = "<group>"; };
+		1E1BB8BC18C1E96D0018E853 /* STACoreImageRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STACoreImageRootViewController.h; sourceTree = "<group>"; };
+		1E1BB8BD18C1E96D0018E853 /* STACoreImageRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STACoreImageRootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 		1E1BB88318C1E1080018E853 /* Core Image */ = {
 			isa = PBXGroup;
 			children = (
+				1E1BB8BF18C1E9910018E853 /* View Controllers */,
 				1E1BB8B918C1E82C0018E853 /* Cross Cutting */,
 				1E1BB88F18C1E1080018E853 /* Main.storyboard */,
 				1E1BB89518C1E1080018E853 /* Images.xcassets */,
@@ -158,6 +162,15 @@
 				1E1BB8B418C1E16E0018E853 /* STADispatchFunctions.m */,
 			);
 			name = "Cross Cutting";
+			sourceTree = "<group>";
+		};
+		1E1BB8BF18C1E9910018E853 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1E1BB8BC18C1E96D0018E853 /* STACoreImageRootViewController.h */,
+				1E1BB8BD18C1E96D0018E853 /* STACoreImageRootViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E1BB8BE18C1E96D0018E853 /* STACoreImageRootViewController.m in Sources */,
 				1E1BB88A18C1E1080018E853 /* main.m in Sources */,
 				1E1BB88E18C1E1080018E853 /* STAAppDelegate.m in Sources */,
 				1E1BB8B518C1E16E0018E853 /* STADispatchFunctions.m in Sources */,

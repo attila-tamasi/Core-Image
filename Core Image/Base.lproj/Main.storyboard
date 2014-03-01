@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CBV-j4-Foo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CBV-j4-Foo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -19,37 +19,92 @@
             </objects>
             <point key="canvasLocation" x="84" y="175"/>
         </scene>
-        <!--View Controller - Core Image-->
+        <!--Core Image Root View Controller - Core Image-->
         <scene sceneID="cpx-aD-5xw">
             <objects>
-                <viewController id="ZhH-qK-F1c" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="e98-ty-kfO"/>
-                        <viewControllerLayoutGuide type="bottom" id="hyF-YD-4zY"/>
-                    </layoutGuides>
+                <viewController title="Core Image" id="ZhH-qK-F1c" customClass="STACoreImageRootViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mhE-FC-OPW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wae-SZ-RA5">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="wae-SZ-RA5">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="edit" id="mo9-1j-BmD"/>
+                                    <barButtonItem systemItem="edit" id="mo9-1j-BmD">
+                                        <connections>
+                                            <segue destination="OEp-oR-oA2" kind="push" id="WBM-T3-gCj"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="beQ-wc-8ku"/>
-                                    <barButtonItem systemItem="action" id="8j5-6P-1TT"/>
+                                    <barButtonItem systemItem="action" id="8j5-6P-1TT">
+                                        <connections>
+                                            <action selector="shareButtonPressed:" destination="ZhH-qK-F1c" id="bUc-uv-Wa0"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hju-4u-ISm">
+                                <rect key="frame" x="0.0" y="112" width="320" height="347"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Core Image" id="gID-ep-8Rb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="XaX-ao-Vrd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="XaX-ao-Vrd">
+                            <connections>
+                                <action selector="prepareImageSelector:" destination="ZhH-qK-F1c" id="Igf-09-xKY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="hju-4u-ISm" id="uiK-6X-xvS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8M-Co-qgq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="532" y="175"/>
+        </scene>
+        <!--Table View Controller - Filters-->
+        <scene sceneID="FXm-WZ-cVi">
+            <objects>
+                <tableViewController title="Filters" id="OEp-oR-oA2" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TO2-cH-Kme">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6Qg-he-Xep">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Qg-he-Xep" id="W6F-GS-nWj">
+                                    <rect key="frame" x="0.0" y="0.0" width="281" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Filter Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RzM-Pc-08d">
+                                            <rect key="frame" x="20" y="11" width="280" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OEp-oR-oA2" id="eeJ-qO-vW8"/>
+                            <outlet property="delegate" destination="OEp-oR-oA2" id="Q0y-97-bbR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Filters" id="fRK-V4-nxE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="K9P-QH-9pa"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkS-CM-EnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949" y="178"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
