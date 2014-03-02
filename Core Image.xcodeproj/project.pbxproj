@@ -22,6 +22,10 @@
 		1E1BB8A918C1E1080018E853 /* Core_ImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8A818C1E1080018E853 /* Core_ImageTests.m */; };
 		1E1BB8B518C1E16E0018E853 /* STADispatchFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8B418C1E16E0018E853 /* STADispatchFunctions.m */; };
 		1E1BB8BE18C1E96D0018E853 /* STACoreImageRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8BD18C1E96D0018E853 /* STACoreImageRootViewController.m */; };
+		1E1BB8C518C24D290018E853 /* STAFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8C418C24D290018E853 /* STAFiltersViewController.m */; };
+		1E1BB8C818C24DEA0018E853 /* STAFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8C718C24DEA0018E853 /* STAFilterManager.m */; };
+		1E1BB8CC18C24EE40018E853 /* STACoreImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8CB18C24EE40018E853 /* STACoreImageFilter.m */; };
+		1E1BB8D218C33BC30018E853 /* STAImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8D118C33BC30018E853 /* STAImageFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,14 @@
 		1E1BB8B418C1E16E0018E853 /* STADispatchFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STADispatchFunctions.m; sourceTree = "<group>"; };
 		1E1BB8BC18C1E96D0018E853 /* STACoreImageRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STACoreImageRootViewController.h; sourceTree = "<group>"; };
 		1E1BB8BD18C1E96D0018E853 /* STACoreImageRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STACoreImageRootViewController.m; sourceTree = "<group>"; };
+		1E1BB8C318C24D290018E853 /* STAFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAFiltersViewController.h; sourceTree = "<group>"; };
+		1E1BB8C418C24D290018E853 /* STAFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAFiltersViewController.m; sourceTree = "<group>"; };
+		1E1BB8C618C24DEA0018E853 /* STAFilterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAFilterManager.h; sourceTree = "<group>"; };
+		1E1BB8C718C24DEA0018E853 /* STAFilterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAFilterManager.m; sourceTree = "<group>"; };
+		1E1BB8CA18C24EE40018E853 /* STACoreImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STACoreImageFilter.h; sourceTree = "<group>"; };
+		1E1BB8CB18C24EE40018E853 /* STACoreImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STACoreImageFilter.m; sourceTree = "<group>"; };
+		1E1BB8D018C33BC30018E853 /* STAImageFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAImageFactory.h; sourceTree = "<group>"; };
+		1E1BB8D118C33BC30018E853 /* STAImageFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAImageFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,7 @@
 		1E1BB88318C1E1080018E853 /* Core Image */ = {
 			isa = PBXGroup;
 			children = (
+				1E1BB8C918C24DF10018E853 /* Model */,
 				1E1BB8BF18C1E9910018E853 /* View Controllers */,
 				1E1BB8B918C1E82C0018E853 /* Cross Cutting */,
 				1E1BB88F18C1E1080018E853 /* Main.storyboard */,
@@ -169,8 +182,23 @@
 			children = (
 				1E1BB8BC18C1E96D0018E853 /* STACoreImageRootViewController.h */,
 				1E1BB8BD18C1E96D0018E853 /* STACoreImageRootViewController.m */,
+				1E1BB8C318C24D290018E853 /* STAFiltersViewController.h */,
+				1E1BB8C418C24D290018E853 /* STAFiltersViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1E1BB8C918C24DF10018E853 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E1BB8C618C24DEA0018E853 /* STAFilterManager.h */,
+				1E1BB8C718C24DEA0018E853 /* STAFilterManager.m */,
+				1E1BB8CA18C24EE40018E853 /* STACoreImageFilter.h */,
+				1E1BB8CB18C24EE40018E853 /* STACoreImageFilter.m */,
+				1E1BB8D018C33BC30018E853 /* STAImageFactory.h */,
+				1E1BB8D118C33BC30018E853 /* STAImageFactory.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,8 +304,12 @@
 			files = (
 				1E1BB8BE18C1E96D0018E853 /* STACoreImageRootViewController.m in Sources */,
 				1E1BB88A18C1E1080018E853 /* main.m in Sources */,
+				1E1BB8C818C24DEA0018E853 /* STAFilterManager.m in Sources */,
+				1E1BB8CC18C24EE40018E853 /* STACoreImageFilter.m in Sources */,
 				1E1BB88E18C1E1080018E853 /* STAAppDelegate.m in Sources */,
+				1E1BB8C518C24D290018E853 /* STAFiltersViewController.m in Sources */,
 				1E1BB8B518C1E16E0018E853 /* STADispatchFunctions.m in Sources */,
+				1E1BB8D218C33BC30018E853 /* STAImageFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

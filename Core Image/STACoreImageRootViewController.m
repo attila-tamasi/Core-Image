@@ -7,20 +7,26 @@
 //
 
 #import "STACoreImageRootViewController.h"
+#import "STAImageFactory.h"
+#import "STAFilterManager.h"
 
 @interface STACoreImageRootViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
+
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+
+@property (nonatomic, strong) UIImage *originalImage;
 
 @end
 
 @implementation STACoreImageRootViewController
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [super viewDidAppear:animated];
+
+    [self renderImageWithEnabledFilters];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,6 +67,18 @@
     [[[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancel otherButtonTitles:ok, nil] show];
 }
 
+- (void)renderImageWithEnabledFilters
+{
+    dispatchOnMainQueue (^{
+
+        STAImageFactory *imageManager = [[STAImageFactory alloc] init];
+
+        NSArray *filters = [[STAFilterManager sharedInstance] availableCoreImageFilters];
+
+        self.imageView.image = [imageManager imageWithImage:self.originalImage filters:filters];
+    });
+}
+
 #pragma mark - image picker controller delegate methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -69,7 +87,11 @@
     {
         UIImage *image = (UIImage *)info[UIImagePickerControllerOriginalImage];
 
+        [[STAFilterManager sharedInstance] resetFilters];
+
         self.imageView.image = image;
+
+        self.originalImage = image;
 
         dispatchOnMainQueue (^{
             [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
