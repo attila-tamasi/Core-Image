@@ -30,7 +30,14 @@
 
     if (self)
     {
-        self.availableCoreImageFilters = @[[STAFilterManager sepiaFilter], [STAFilterManager blackAndWhiteFilter]];
+        self.availableCoreImageFilters = @[[STAFilterManager sepiaFilter],
+                                           [STAFilterManager blackAndWhiteFilter],
+                                           [STAFilterManager gaussianBlurFilter],
+                                           [STAFilterManager lightFilter],
+                                           [STAFilterManager vignetteFilter],
+                                           [STAFilterManager invertColorFilter],
+                                           [STAFilterManager dotScreenFilter]
+            ];
     }
 
     return self;
@@ -56,6 +63,67 @@
                       kCIInputContrastKey, @1.1,
                       kCIInputSaturationKey, @0.0,
                       nil];
+
+    return aFilter;
+}
+
++ (STACoreImageFilter *)lightFilter
+{
+    STACoreImageFilter *aFilter = [[STACoreImageFilter alloc] init];
+
+    aFilter.name = @"Lighten";
+    aFilter.filter = [CIFilter filterWithName:@"CIColorControls" keysAndValues:
+                      kCIInputBrightnessKey, @0.5,
+                      kCIInputSaturationKey, @0.0,
+                      nil];
+
+    return aFilter;
+}
+
++ (STACoreImageFilter *)vignetteFilter
+{
+    STACoreImageFilter *aFilter = [[STACoreImageFilter alloc] init];
+
+    aFilter.name = @"Vignette";
+    aFilter.filter = [CIFilter filterWithName:@"CIVignette" keysAndValues:
+                      kCIInputRadiusKey, @20.0,
+                      kCIInputIntensityKey, @5.0,
+                      nil];
+
+    return aFilter;
+}
+
++ (STACoreImageFilter *)gaussianBlurFilter
+{
+    STACoreImageFilter *aFilter = [[STACoreImageFilter alloc] init];
+
+    aFilter.name = @"Gaussian Blur";
+    aFilter.filter = [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:
+                      kCIInputRadiusKey, @3.0,
+                      nil];
+
+    return aFilter;
+}
+
++ (STACoreImageFilter *)dotScreenFilter
+{
+    STACoreImageFilter *aFilter = [[STACoreImageFilter alloc] init];
+
+    aFilter.name = @"Dot screen effect";
+    aFilter.filter = [CIFilter filterWithName:@"CIDotScreen" keysAndValues:
+                      kCIInputAngleKey, @0.4,
+                      kCIInputSharpnessKey, @0.5,
+                      nil];
+
+    return aFilter;
+}
+
++ (STACoreImageFilter *)invertColorFilter
+{
+    STACoreImageFilter *aFilter = [[STACoreImageFilter alloc] init];
+
+    aFilter.name = @"Invert color";
+    aFilter.filter = [CIFilter filterWithName:@"CIColorInvert"];
 
     return aFilter;
 }

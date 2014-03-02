@@ -69,13 +69,19 @@
 
 - (void)renderImageWithEnabledFilters
 {
-    dispatchOnMainQueue (^{
+    __block UIImage *effectedImage;
+
+    dispatchOnBackgroundQueue (^{
 
         STAImageFactory *imageManager = [[STAImageFactory alloc] init];
 
         NSArray *filters = [[STAFilterManager sharedInstance] availableCoreImageFilters];
 
-        self.imageView.image = [imageManager imageWithImage:self.originalImage filters:filters];
+        effectedImage = [imageManager imageWithImage:self.originalImage filters:filters];
+
+        dispatchOnMainQueue (^{
+                self.imageView.image = effectedImage;
+            });
     });
 }
 
