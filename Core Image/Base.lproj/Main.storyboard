@@ -27,10 +27,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No picture selected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AFT-6v-UxZ">
-                                <rect key="frame" x="85" y="273" width="150" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No picture selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AFT-6v-UxZ">
+                                <rect key="frame" x="0.0" y="273" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hju-4u-ISm">
@@ -47,7 +48,14 @@
                                             <segue destination="OEp-oR-oA2" kind="push" id="WBM-T3-gCj"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="beQ-wc-8ku"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wV3-8Z-jSt"/>
+                                    <barButtonItem style="plain" id="1eQ-ll-ohF">
+                                        <progressView key="customView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" id="Dez-zj-19r">
+                                            <rect key="frame" x="66" y="21" width="209" height="3"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </progressView>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bHo-IZ-THS"/>
                                     <barButtonItem systemItem="action" id="8j5-6P-1TT">
                                         <connections>
                                             <action selector="shareButtonPressed:" destination="ZhH-qK-F1c" id="bUc-uv-Wa0"/>
@@ -67,6 +75,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="hju-4u-ISm" id="uiK-6X-xvS"/>
+                        <outlet property="progressBar" destination="Dez-zj-19r" id="uHM-IX-STo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8M-Co-qgq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -105,9 +114,7 @@
                             <outlet property="delegate" destination="OEp-oR-oA2" id="Q0y-97-bbR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Filters" id="fRK-V4-nxE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="K9P-QH-9pa"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Filters" id="fRK-V4-nxE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkS-CM-EnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -26,6 +26,8 @@
 		1E1BB8C818C24DEA0018E853 /* STAFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8C718C24DEA0018E853 /* STAFilterManager.m */; };
 		1E1BB8CC18C24EE40018E853 /* STACoreImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8CB18C24EE40018E853 /* STACoreImageFilter.m */; };
 		1E1BB8D218C33BC30018E853 /* STAImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8D118C33BC30018E853 /* STAImageFactory.m */; };
+		1E1BB8D618C3C3F60018E853 /* STANetworkSessionUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1BB8D518C3C3F60018E853 /* STANetworkSessionUploadTask.m */; };
+		1E6DAF5F18C3CEA3004277A7 /* STANetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6DAF5E18C3CEA3004277A7 /* STANetworkRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,10 @@
 		1E1BB8CB18C24EE40018E853 /* STACoreImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STACoreImageFilter.m; sourceTree = "<group>"; };
 		1E1BB8D018C33BC30018E853 /* STAImageFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAImageFactory.h; sourceTree = "<group>"; };
 		1E1BB8D118C33BC30018E853 /* STAImageFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAImageFactory.m; sourceTree = "<group>"; };
+		1E1BB8D418C3C3F60018E853 /* STANetworkSessionUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STANetworkSessionUploadTask.h; sourceTree = "<group>"; };
+		1E1BB8D518C3C3F60018E853 /* STANetworkSessionUploadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STANetworkSessionUploadTask.m; sourceTree = "<group>"; };
+		1E6DAF5D18C3CEA3004277A7 /* STANetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STANetworkRequest.h; sourceTree = "<group>"; };
+		1E6DAF5E18C3CEA3004277A7 /* STANetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STANetworkRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,10 @@
 			children = (
 				1E1BB8B318C1E16E0018E853 /* STADispatchFunctions.h */,
 				1E1BB8B418C1E16E0018E853 /* STADispatchFunctions.m */,
+				1E1BB8D418C3C3F60018E853 /* STANetworkSessionUploadTask.h */,
+				1E1BB8D518C3C3F60018E853 /* STANetworkSessionUploadTask.m */,
+				1E6DAF5D18C3CEA3004277A7 /* STANetworkRequest.h */,
+				1E6DAF5E18C3CEA3004277A7 /* STANetworkRequest.m */,
 			);
 			name = "Cross Cutting";
 			sourceTree = "<group>";
@@ -303,7 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E1BB8BE18C1E96D0018E853 /* STACoreImageRootViewController.m in Sources */,
+				1E6DAF5F18C3CEA3004277A7 /* STANetworkRequest.m in Sources */,
 				1E1BB88A18C1E1080018E853 /* main.m in Sources */,
+				1E1BB8D618C3C3F60018E853 /* STANetworkSessionUploadTask.m in Sources */,
 				1E1BB8C818C24DEA0018E853 /* STAFilterManager.m in Sources */,
 				1E1BB8CC18C24EE40018E853 /* STACoreImageFilter.m in Sources */,
 				1E1BB88E18C1E1080018E853 /* STAAppDelegate.m in Sources */,

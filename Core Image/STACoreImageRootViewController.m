@@ -9,14 +9,20 @@
 #import "STACoreImageRootViewController.h"
 #import "STAImageFactory.h"
 #import "STAFilterManager.h"
+#import "STANetworkSessionUploadTask.h"
+#import "STANetworkRequest.h"
 
-@interface STACoreImageRootViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface STACoreImageRootViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, strong) UIImage *originalImage;
+
+@property (nonatomic, strong) STANetworkSessionUploadTask *upload;
+
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @end
 
@@ -96,12 +102,40 @@
         [[STAFilterManager sharedInstance] resetFilters];
 
         self.imageView.image = image;
-
         self.originalImage = image;
 
         dispatchOnMainQueue (^{
             [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
         });
+    }
+}
+
+#pragma mark - alert view delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        STANetworkRequest *request = [[STANetworkRequest alloc] init];
+
+#warning ENDPOINT URL MISSING
+        request.path = @"";
+        request.bodyObject = UIImageJPEGRepresentation(self.imageView.image, 0.7);
+
+        self.upload = [[STANetworkSessionUploadTask alloc] initWithRequest:request completionBlock:^(id response, NSError *error, NSUInteger stutsCode) {
+
+            if (!error)
+            {
+                self.progressBar.progress = 0.0;
+
+                [[[UIAlertView alloc] initWithTitle:@"Upload finished" message:@"Image uploaded correctly." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            }
+
+        } progressBlock:^(float progress) {
+            self.progressBar.progress = progress;
+        }];
+
+        [self.upload execute];
     }
 }
 
